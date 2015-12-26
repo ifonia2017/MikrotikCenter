@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-12-2015 a las 02:06:54
+-- Tiempo de generación: 26-12-2015 a las 02:43:16
 -- Versión del servidor: 5.5.8
 -- Versión de PHP: 5.4.45
 
@@ -567,7 +567,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`id`, `sucursal_id`, `persona_id`, `login`, `password`, `perfil_id`, `nas_id`, `tema`, `app_ajax`, `datagrid`, `usuario_id`, `registrado_at`, `modificado_in`, `estado`, `status`) VALUES
 (1, NULL, 1, 'error', '963db57a0088931e0e3627b1e73e6eb5', 1, NULL, 'default', 1, 30, NULL, '2013-01-01 00:00:01', NULL, 1, 1),
-(2, NULL, 2, 'admin', 'a5e3f65c825aac8d7158df226d57c33e', 1, 1, 'default', 1, 30, NULL, '2013-01-01 00:00:01', '2015-11-16 13:57:28', 1, 1);
+(2, NULL, 2, 'admin', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1, 1, 'default', 1, 30, NULL, '2013-01-01 00:00:01', '2015-11-16 13:57:28', 1, 1);
 
 --
 -- Filtros para las tablas descargadas (dump)
