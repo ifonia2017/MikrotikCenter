@@ -1,0 +1,10 @@
+<?php if (Config::get('config.application.breadcrumb')) : ?>
+		<?php 
+		Load::lib('breadcrumb2');
+		$Crumb = new Breadcrumb();
+		$Crumb->addCrumb(0, ('Dashboard'), '../dashboard/', 'dashboard');
+		$Crumb->addCrumb(1, Router::get('controller'), Router::get('module') . Router::get('controller'));
+		$Crumb->addCrumb(2, Router::get('action'), Router::get('module') . Router::get('controller') .  Router::get('action'));
+		echo $Crumb->display();
+		 ?>
+<?php endif; ?>

@@ -1,0 +1,15 @@
+<div class="content-header">
+    <?php if(!empty($titulo)) { ?>
+    <script type="text/javascript">
+        DwTitle('<?php echo $proceso; ?>');
+    </script>
+    <?php } ?>
+    <h1><?php echo ucfirst($modulo); ?>
+    <?php
+    if(isset($proceso) && $proceso!=null) {
+        $proceso = explode(' |', $proceso);
+        echo " | <small>",ucfirst(trim($proceso[0])),"</small>";
+    } ?>
+    </h1>
+    <?php View::partial('backend/breadcrumb') ?>
+</div>

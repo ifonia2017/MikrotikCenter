@@ -1,0 +1,35 @@
+<div class="content-wrapper dw-shell-view">
+
+        <?php View::process($page_module, $page_title, $set_title); ?>
+
+    <section class="content dw-overflow">
+        <?php View::notify(); ?>
+    <div class="box box-primary">
+        <div class="box-body">
+
+    <?php echo DwForm::open('', 'post', array('id'=>'form', 'class'=>'dw-validate')); ?>
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <?php echo DwForm::text('perfil.perfil', array('class'=>'form-control input-required mask-alpha show-error'), $perfil->perfil, 'Perfil'); ?>
+            </div>
+            <div class="col-md-6">
+                <?php echo DwForm::text('perfil.plantilla', array('class'=>'form-control mask-alphanum show-error'), $perfil->plantilla, 'Plantilla', 'La plantilla de sebe ubicar dentro la caperta "templates".'); ?>
+            </div>
+            <?php echo DwForm::hiddenKey('perfil.id', $perfil->id)?>
+        </div>
+
+        <div class="form-group">
+            <div class="form-actions">
+                <?php echo DwButton::save('Guardar perfil'); ?>
+                <?php echo DwButton::reset('form'); ?>
+                <?php echo DwButton::cancel('sistema/perfil/listar/'); ?>
+            </div>
+        </div>
+
+    <?php echo DwForm::close(); ?>
+
+</div>
+</div>
+</section>
+</div>

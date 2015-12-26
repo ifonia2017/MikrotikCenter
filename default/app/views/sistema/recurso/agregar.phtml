@@ -1,0 +1,42 @@
+<div class="content-wrapper dw-shell-view">
+  
+        <?php View::process($page_module, $page_title, $set_title); ?>
+
+    <section class="content dw-overflow">
+        <?php View::notify(); ?>
+    <div class="box box-primary">
+        <div class="box-body">
+
+    <?php echo DwForm::open('', 'post', array('id'=>'form', 'class'=>'dw-validate')); ?>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <?php echo DwForm::text('recurso.modulo', array('class'=>'form-control mask-alphanum show-error'), NULL, 'Módulo'); ?>
+            </div>
+            <div class="col-md-4">
+                <?php echo DwForm::text('recurso.controlador', array('class'=>'form-control input-required mask-alphanum show-error'), NULL, 'Controlador'); ?>
+            </div>
+            <div class="col-md-4">
+                <?php echo DwForm::text('recurso.accion', array('class'=>'form-control mask-alphanum show-error'), NULL, 'Acción'); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <?php echo DwForm::textarea('recurso.descripcion', array('class'=>'form-control input-required mask-text show-error input-xxlarge'), NULL, 'Descripción'); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-actions">
+                <?php echo DwButton::save('Guardar recurso'); ?>
+                <?php echo DwButton::reset('form'); ?>
+                <?php echo DwButton::cancel('sistema/recurso/listar/'); ?>
+            </div>
+        </div>
+
+    <?php echo DwForm::close(); ?>
+
+</div>
+</div>
+</section>
+</div>

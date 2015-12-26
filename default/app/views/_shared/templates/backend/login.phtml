@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset=<?= APP_CHARSET ?> >
+    <?php Html::headLinkResource ('favicon.png' , "rel='shortcut icon',type='image/xicon'"); ?>
+    <?php echo Html :: includeHeadLinks () ?>
+    <title><?php echo Config::get('config.application.name'); ?> | <?php echo $page_title; ?></title>
+    
+    <?php Tag::css('bootstrap.min') ?>
+    <?php Tag::css('font-awesome.min') ?>
+    <?php Tag::css('theme') ?>
+    <?php Tag::css('bootstrap.reset') ?>
+    <?php Tag::css('flexslider') ?>
+    <?php Tag::css('jquery.bxslider') ?>
+    <?php Tag::css('animate') ?>
+    <?php Tag::css('owl.carousel') ?>
+    <?php Tag::css('owl.theme') ?>
+    <?php Tag::css('superfish') ?>
+    <?php Tag::css('component') ?>
+    <?php Tag::css('style') ?>
+    <?php Tag::css('style-responsive') ?>
+    <?php Tag::css('parallax-slider/parallax-slider') ?>
+    <?php Tag::css('superfish') ?>
+
+    <?= Html::includeCss() ?>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    
+    <?php echo Tag::js('parallax-slider/modernizr.custom.28468'); ?>
+
+    <script language="javascript" type="text/javascript" src="http://www.slweb.com/liveadmin/client.php?key=LD1F0BA76V1E19E453M82238B2"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+    <body class="login-bg">
+
+
+<?php View::content(); ?>
+
+<script type="text/javascript">
+            $(function () {
+                jQuery.support.placeholder = false;
+                test = document.createElement('input');
+                if('placeholder' in test) jQuery.support.placeholder = true;
+                if (!$.support.placeholder) {
+                    $('.field').find ('label').show();
+                }
+            });
+</script>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<?php echo Tag::js('vendors/html5').PHP_EOL; ?>
+<![endif]-->
+<?php echo Tag::js('utils/var').PHP_EOL; ?>
+
+<?php echo DwDialog::alert('Se ha generado la siguiente excepción: <br /><span id="dw-error-ajax"></span>.', 'title: Oops! hemos realizado algo mal.', 'name: errorAjax'); ?>
+<?php echo DwDialog::alert('Se ha producido un error en la validación del formulario.', 'subtext: Verifica los datos e intenta nuevamente.', 'title: Formulario incorrecto', 'name: errorForm'); ?>
+
+    </body>
+</html>

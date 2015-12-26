@@ -1,0 +1,23 @@
+<div class="breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-sm-4">
+				<?php if(!empty($titulo)) { ?>
+				<script type="text/javascript">
+					DwTitle('<?php echo $proceso; ?>');
+				</script>
+				<?php } ?>
+				<h1><?php echo ucfirst($modulo); ?>
+				<?php
+				if(isset($proceso) && $proceso!=null) {
+					$proceso = explode(' |', $proceso);
+					echo " | <small>",ucfirst(trim($proceso[0])),"</small>";
+				} ?>
+				</h1>
+			</div>
+			<div class="col-lg-8 col-sm-8">
+			<?php View::partial('breadcrumb') ?>
+			</div>
+		</div>
+	</div>
+</div>

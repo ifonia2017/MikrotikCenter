@@ -1,0 +1,71 @@
+<script type="text/javascript">
+    $(function() {
+        $('table').dwGrid({
+            order_attr: '<?php echo (APP_AJAX) ? 'class="dw-ajax dw-spinner"' : ''; ?>',
+            order_action: $.KumbiaPHP.publicPath+"mikrotik/nas/listar/"
+        });
+    });
+</script>
+
+<div class="content-wrapper dw-shell-view">
+
+     <?php View::process($page_module, $page_title, $set_title); ?>
+
+    <section class="content dw-overflow">
+        <?php View::notify(); ?>
+    <div class="box box-primary">
+        <div class="box-body">
+
+    <div class="btn-toolbar btn-toolbar-top">
+        <div class="btn-actions">
+        <?php echo DwHtml::button("mikrotik/nas/agregar/", 'agregar', array('class'=>'btn-success'), 'check', APP_AJAX); ?>
+        </div>
+    </div>
+<div class="dw-overflow">
+
+        <table class="table table-bordered table-hover table-striped table-condensed table-responsive">
+            <thead>
+                <tr>
+                    <th>NUM</th>
+                    <th class="col-collapse" data-search="sucursal">NOMBRE DEL ROUTER</th>
+                    <th class="col-collapse" data-search="direccion">DIRECCION IP</th>
+                    <th class="col-collapse" data-search="ciudad">USUARIO</th>
+                    <th class="col-collapse" data-search="celular">PASSWORD</th>
+                    <th class="col-collapse" data-search="telefono">PUERTO</th>
+                    <th class="col-collapse" data-search="fax">SECRET RADIUS</th>
+                    <th class="col-collapse" data-search="fax">PUERTO RADIUS</th>
+                    <th class="col-collapse" data-search="fax">GRUPO DEL NAS</th>
+                    <th class="btn-actions no-responsive" style="width: 100px;">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($nas_mkt->items as $nas): ?>
+                    <?php $key_upd = DwSecurity::getKey($nas_mkt->id, 'upd_nas'); ?>
+                    <?php $key_del = DwSecurity::getKey($nas_mkt->id, 'del_nas'); ?>
+                    <tr>
+                        <td><?php echo $nas_mkt->counter; ?></td>
+                        <td><?php echo $nas->id_mkt; ?></td>
+                        <td><?php echo $nas->ip_nas; ?></td>
+                        <td><?php echo $nas->user_nas; ?></td>
+                        <td><?php echo $nas->pass_nas; ?></td>
+                        <td><?php echo $nas->port_nas; ?></td>
+                        <td><?php echo $nas->secret_nas; ?></td>
+                        <td><?php echo $nas->portradius_nas; ?></td>
+                        <td><?php echo $nas->group_nas; ?></td>
+                        <td>
+                            <?php echo DwHtml::buttonTable('Modificar sucursal', "mikrotik/nas/editar/$key_upd/", null, 'info', 'edit'); ?>
+                            <?php echo DwHtml::buttonTable('Eliminar sucursal', "mikrotik/nas/eliminar/$key_del/", array('class'=>'js-confirm', 'confirm-title'=>'Eliminar sucursal', 'confirm-body'=>'Está seguro de eliminar esta sucursal? <br />Recuerda que esta operación no se puede reversar.'), 'danger', 'trash'); ?>
+                        </td>
+                    </tr>
+                    <?php $nas->counter++; ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div>
+
+    <?php View::partial('paginators/default', false, array('page'=>$nas_mkt, 'url'=>"mikrotik/nas/listar/$order/")); ?>
+</div>
+</div>
+</section>
+</div>

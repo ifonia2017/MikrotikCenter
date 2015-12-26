@@ -1,0 +1,60 @@
+<script type="text/javascript">
+    var ciudades = <?php echo $ciudades; ?>;
+    $(function() {
+        $('#ciudad').typeahead({
+                source: ciudades, items:5
+        });
+    });
+</script>
+
+<div class="content-wrapper dw-shell-view">
+
+    <?php View::process($page_module, $page_title, $set_title); ?>
+    
+
+<section class="content dw-overflow">
+        <?php View::notify(); ?>
+        <div class="box box-primary">
+        <div class="box-body">
+
+    <?php echo DwForm::open('', 'post', array('id'=>'form', 'class'=>'form-group dw-validate')); ?>
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <?php echo DwForm::text('sucursal.sucursal', array('class'=>'form-control input-xxlarge input-required input-alphanum mask-alphanum show-error'), $sucursal->sucursal, 'Nombre de la sucursal'); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                <?php echo DwForm::text('sucursal.direccion', array('class'=>'form-control input-xxlarge input-required input-alphanum mask-alphanum show-error'), $sucursal->direccion, 'Dirección'); ?>
+            </div>
+            <div class="col-md-3">
+                <?php echo DwForm::text('ciudad', array('class'=>'form-control input-xxlarge input-required input-alphanum mask-alphanum show-error', 'autocomplete'=>'off'), $sucursal->ciudad, 'Ciudad'); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <?php echo DwForm::tel('sucursal.celular', array('class'=>'form-control input-numeric mask-pint show-error'), $sucursal->celular, 'Celular'); ?>
+            </div>
+            <div class="col-md-3">
+                <?php echo DwForm::tel('sucursal.telefono', array('class'=>'form-control input-numeric mask-pint show-error'), $sucursal->telefono, 'Teléfono'); ?>
+            </div>
+            <div class="col-md-3">
+                <?php echo DwForm::tel('sucursal.fax', array('class'=>'form-control input-numeric mask-pint show-error'), $sucursal->fax, 'Fax'); ?>
+            </div>
+
+            <?php echo DwForm::hiddenKey('sucursal.id', $sucursal->id); ?>
+        </div>
+        </div>
+        <div class="box-footer input-group">
+            <div class="input-group-sm">
+                <?php echo DwButton::save('Guardar sucursal'); ?>
+                <?php echo DwButton::reset('form'); ?>
+                <?php echo DwButton::cancel(); ?>
+            </div>
+        </div>
+
+    <?php echo DwForm::close(); ?>
+    </div>
+</section>
+</div>

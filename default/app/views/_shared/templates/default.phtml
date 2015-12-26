@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset=<?= APP_CHARSET ?> >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<?php Html::headLinkResource ('img/favicon.png' , "rel='shortcut icon',type='image/xicon'"); ?>
+	<?php echo Html :: includeHeadLinks () ?>
+	<title><?php echo APP_NAME. ' | '  .$page_title; ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex,nofollow" />
+	
+	<?php Tag::css('bootstrap.min') ?>
+	<?php Tag::css('font-awesome.min') ?>
+	<?php Tag::css('theme') ?>
+	<?php Tag::css('bootstrap.reset') ?>
+	<?php Tag::css('flexslider') ?>
+	<?php Tag::css('jquery.bxslider') ?>
+	<?php Tag::css('animate') ?>
+	<?php Tag::css('owl.carousel') ?>
+	<?php Tag::css('owl.theme') ?>
+	<?php Tag::css('superfish') ?>
+	<?php Tag::css('component') ?>
+	<?php Tag::css('style') ?>
+	<?php Tag::css('style-responsive') ?>
+	<?php Tag::css('parallax-slider/parallax-slider') ?>
+	<?php Tag::css('superfish') ?>
+	<?= Html::includeCss() ?>
+
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+	
+	<?php echo Tag::js('parallax-slider/modernizr.custom.28468').PHP_EOL; ?>
+
+	<script language="javascript" type="text/javascript" src="http://www.slweb.com/liveadmin/client.php?key=LD1F0BA76V1E19E453M82238B2"></script>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+<?php View::partial('header') ?>
+<?php View::content() ?>
+<?php View::partial('footer') ?>
+</body>
+</html>
